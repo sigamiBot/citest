@@ -1,3 +1,3 @@
 <?php
 
-this is an errr
+echo "this is an errr";
