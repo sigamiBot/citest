@@ -10,7 +10,7 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - name: Run Inspections
-      uses: poxtron/action-phpcs-code-review@v2.0.2
+      uses: poxtron/ci-review
       env:
         GH_BOT_TOKEN: ${{ secrets.ET_TOKEN }}
 #        SKIP_FOLDERS: "tests,.github"
