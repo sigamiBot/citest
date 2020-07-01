@@ -6,13 +6,26 @@ jobs:
     name: Run RUNRUN PHPCS inspection
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: ${{ github.event.pull_request.head.sha }}
-    - name: Run Inspections
-      uses: poxtron/ci-review@master
-      env:
-        GH_BOT_TOKEN: ${{ secrets.ET_TOKEN }}
+      - name: Checkout current PR
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: repo
+      - name: Checkout current phpcs rules
+        uses: actions/checkout@v2
+        with:
+          repository: elegantthemes/marketplace-phpcs
+          path: rules
+      - name: Get latest release of vip-go-ci
+        uses: pozetroninc/github-action-get-latest-release@master
+        with:
+          repository: Automattic/vip-go-ci
+      - name: check contents
+        run: ls -la
+#      - name: Run Inspections
+#        uses: poxtron/ci-review@master
+#        env:
+#          GH_BOT_TOKEN: ${{ secrets.ET_TOKEN }}
 #        SKIP_FOLDERS: "tests,.github"
 #      with:
 #        args: ""
