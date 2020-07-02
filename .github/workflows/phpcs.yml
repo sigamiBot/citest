@@ -3,29 +3,32 @@ on: pull_request
 name: Inspections
 jobs:
   runPHPCSInspection:
-    name: Run RUNRUN PHPCS inspection
+    name: Run PHPCS inspection
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current PR
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.event.pull_request.head.sha }} # 786d36d4d0dd876115619fcd886cb2fcd80cc3e3
           path: repo
-      - name: Checkout current phpcs rules
-        uses: actions/checkout@v2
-        with:
-          repository: elegantthemes/marketplace-phpcs
-          path: rules
-      - name: Get latest release of vip-go-ci
-        uses: pozetroninc/github-action-get-latest-release@master
-        with:
-          repository: Automattic/vip-go-ci
+          token: ${{ secrets.ET_TOKEN }}
       - name: check contents
-        run: ls -la
+        run: echo ${{ github.event.pull_request }}
+#      - name: Checkout current phpcs rules
+#        uses: actions/checkout@v2
+#        with:
+#          repository: elegantthemes/marketplace-phpcs
+#          path: rules
+#          token: ${{ secrets.ET_TOKEN }}
+#      - id: goci
+#        name: Get latest release of vip-go-ci
+#        uses: pozetroninc/github-action-get-latest-release@v0.4.0
+#        with:
+#          repository: Automattic/vip-go-ci
 #      - name: Run Inspections
 #        uses: poxtron/ci-review@master
 #        env:
 #          GH_BOT_TOKEN: ${{ secrets.ET_TOKEN }}
-#        SKIP_FOLDERS: "tests,.github"
-#      with:
-#        args: ""
+#          GOCI_VERSION: ${{ steps.goci.outputs.release }}
+#      - name: check contents
+#        run: echo ${{ github.event.pull_request.head.sha }}
