@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.sha }} # 786d36d4d0dd876115619fcd886cb2fcd80cc3e3
-#          path: repo # commented out because vip-go-ci needs the repo folder name intact.
+          path: repo # commented out because vip-go-ci needs the repo folder name intact.
           token: ${{ secrets.ET_TOKEN }} # not needed on production but necessary for local tests.
 #      - name: check contents
 #        run: echo ${{ github.event.pull_request }}
