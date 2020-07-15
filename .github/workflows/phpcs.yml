@@ -25,10 +25,10 @@ jobs:
 #        uses: pozetroninc/github-action-get-latest-release@v0.4.0
 #        with:
 #          repository: Automattic/vip-go-ci
-      - name: Run Inspections
-        uses: poxtron/ci-review@master
-        env:
-          GH_BOT_TOKEN: ${{ secrets.ET_TOKEN }}
+#      - name: Run Inspections
+#        uses: poxtron/ci-review@master
+#        env:
+#          GH_BOT_TOKEN: ${{ secrets.ET_TOKEN }}
 #          GOCI_VERSION: ${{ steps.goci.outputs.release }}
 #      - name: check contents
 #        run: echo ${{ github.event.pull_request.head.sha }}
