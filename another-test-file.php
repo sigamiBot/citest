@@ -124,6 +124,8 @@ function vipgoci_irc_api_alerts_send(
 	}
 }
 
+phpinfo();
+
 /**
  * Send statistics to pixel API so
  * we can keep track of actions we
