@@ -15,7 +15,7 @@ jobs:
       - name: Checkout current phpcs rules
         uses: actions/checkout@v2
         with:
-          repository: elegantthemes/marketplace-phpcs
+          repository: elegantthemes/et-styles
           path: rules
           token: ${{ secrets.ET_TOKEN }}
       - name: Run Inspections
